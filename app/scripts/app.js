@@ -1,19 +1,19 @@
 'use strict';
 
-angular.module('bmcApp', ['ngRoute'])
+angular.module('bmcApp', ['ngRoute','ngResource'])
 	.config(function ($routeProvider) {
 	    $routeProvider
 	      .when('/', {
-	        templateUrl: 'views/index.html',
-	        controller: 'IndexCtrl'
+	        templateUrl: 'views/main.html',
+	        controller: 'MainCtrl'
 	      })
-	      .when('/canvas/:id',{
-	      	templateUrl:'views/canvas.html',
-	      	controller:'CanvasCtrl'
-	      })
-	      .when('/iteration/:id',{
+	      .when('/iterations/:id',{
 	      	templateUrl:'views/iterations.html',
 	      	controller:'IterationCtrl'
+	      })
+	      .when('/canvas/:index',{
+	      	templateUrl:'views/canvas.html',
+	      	controller:'CanvasCtrl'
 	      })
 	      .otherwise({
 	        redirectTo: '/'

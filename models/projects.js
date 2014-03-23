@@ -2,9 +2,11 @@ var mongoose = require('mongoose')
 
 var projectSchema = mongoose.Schema({
 	title:String,
+	description:String,
 	canvas:[
 			{
 				title:String,
+				hypothesis:String,
 				params:{
 					segments:String,
 					value:String,
@@ -30,15 +32,16 @@ var Project = mongoose.model('projects',projectSchema)
 exports.createProject = function(d,callback){
 	new Project({
 		title:d.title,
+		description:d.description,
 		created_on:new Date()
 	}).save(function(err,docs){
-		e?callback(null):callback(true)
+		err?callback(null):callback(true)
 	})
 }
 
-exports.editProject = function(id,title,callback){
-	Project.update({_id:id},{title:title},function(err,status){
-		e?callback(null):callback(true)
+exports.editProject = function(id,d,callback){
+	Project.update({_id:id},{title:d.title,description:d.description},function(err,status){
+		err?callback(null):callback(true)
 	})
 }
 

@@ -1,36 +1,56 @@
-<div class="header">
-  <ul class="nav nav-pills pull-right">
-    <li class="active"><a ng-href="#">Home</a></li>
-    <li><a ng-href="#">About</a></li>
-    <li><a ng-href="#">Contact</a></li>
-  </ul>
-  <h3 class="text-muted">BMC</h3>
-</div>
+<div class="container" id="Main">
+	<div class="col-md-2 col-md-offset-10">
+		<a href="#create" role="button" data-toggle="modal" class="btn btn-info"><i class="fa fa-plus-square"></i>&nbsp;New project</a>
+	</div>
+	<div class="col-md-12">
+	  <h1>Projects</h1>
+	  <ul>
+	    <li ng-repeat="P in Projects">
+	    	<div class="pull-right">
+	      		<button class="btn btn-info" ng-click="edit_status($index)" data-toggle="modal" data-target="#edit" role="button">
+	      			<i class="fa fa-edit"></i>
+	      		</button>
+	      		<button class="btn btn-danger" ng-click="delete(P._id)">
+	      			<i class="fa fa-trash-o"></i>
+	      		</button>
+	      	</div>
+	      <a href="/#/iterations/{{P._id}}"><h3><i class="fa fa-folder"></i>&nbsp;{{P.title}}</h3></a>
+	      <p style="text-indent:80px;">{{P.description}}</p>
+	    </li>
+	  </ul>
+	 </div>
 
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!</a></p>
-</div>
+  <div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  	<div class="modal-dialog">
+  		<div class="modal-content">
+  			<div class="modal-header">
+  				<a type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a>
+  				<h2 class="modal-title" id="myModalLabel">Create project</h2>
+  			</div>
+  			<div class="modal-body center">
+				<input type="text" ng-model="N.title" class="form-control" placeholder="Project title"/><br>
+				<textarea type="text" ng-model="N.description" class="form-control" placeholder="Project description"></textarea><br>
+				{{err}}
+  				<button class="btn btn-lg btn-block btn-primary" ng-click="create()">Create</button>
+  			</div>
+  		</div>
+  	</div>
+  </div>
 
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
-
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
-
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
-</div>
-
-<div class="footer">
-  <p>♥ from the Yeoman team</p>
+  <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  	<div class="modal-dialog">
+  		<div class="modal-content">
+  			<div class="modal-header">
+  				<a type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a>
+  				<h2 class="modal-title" id="myModalLabel">Create project</h2>
+  			</div>
+  			<div class="modal-body center">
+				<input type="text" ng-model="E.title" class="form-control" placeholder="Project title"/><br>
+				<textarea type="text" ng-model="E.description" class="form-control" placeholder="Project description"></textarea><br>
+				{{err}}
+  				<button class="btn btn-lg btn-block btn-primary" ng-click="edit()">Save</button>
+  			</div>
+  		</div>
+  	</div>
+  </div>
 </div>

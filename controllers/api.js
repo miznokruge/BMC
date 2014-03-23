@@ -8,7 +8,7 @@ var project = {
 		})
 	},
 	edit:function(req,res){
-		Project.editProject(req.params.id,req.body.title,function(done){
+		Project.editProject(req.params.id,req.body,function(done){
 			res.send(done)
 		})
 	},
