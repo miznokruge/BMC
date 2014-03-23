@@ -59,9 +59,9 @@ app.post('/api/projects',Api.project.create)
 app.put('/api/projects/:id',Api.project.edit)
 app.del('/api/projects/:id',Api.project.delete)
 
-app.post('/api/canvas/:id',Api.canvas.create)
-app.put('/api/canvas/:id/:index',Api.canvas.edit)
-app.del('/api/canvas/:id/:index',Api.canvas.delete)
+app.post('/api/iterations/:id',Api.canvas.create)
+app.put('/api/iterations/:id/:index',Api.canvas.edit)
+app.del('/api/iterations/:id/:index',Api.canvas.delete)
 
 
 http.createServer(app).listen(app.get("port"), function() {

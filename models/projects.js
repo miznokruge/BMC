@@ -63,7 +63,7 @@ exports.getAll = function(callback){
 	})
 }
 exports.createCanvas = function(id,d,callback){
-	Project.finOne({_id:id},function(err,docs){
+	Project.findOne({_id:id},function(err,docs){
 		if(err) callback(null)
 		else{docs.canvas.push(d)
 			docs.save(function(e,o){
@@ -78,7 +78,8 @@ exports.editCanvas = function(id,index,d,callback){
 	Project.findOne({_id:id},function(err,docs){
 		if(err) callback(null)
 		else{
-			docs.canvas[index] = d
+			docs.canvas[index].title = d.title
+			docs.canvas[index].hypothesis = d.hypothesis
 			docs.save(function(e,o){
 				e?callback(null):callback(o)
 			})

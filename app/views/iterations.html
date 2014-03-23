@@ -1,10 +1,56 @@
-<div class="container" id="Iterations">
-  <h1>Iterations</h1>
+<div class="container" id="Iteration">
+	<div class="col-md-2 col-md-offset-10">
+		<a data-target="#create" role="button" data-toggle="modal" class="btn btn-info"><i class="fa fa-plus-square"></i>&nbsp;New Iteration</a>
+	</div>
+	<div class="col-md-12">
+	  <h1>Iterations</h1>
+	  <ul>
+	    <li ng-repeat="I in Iterations">
+	    	<div class="pull-right">
+	      		<button class="btn btn-info" ng-click="edit_status($index)" data-toggle="modal" data-target="#edit" role="button">
+	      			<i class="fa fa-edit"></i>
+	      		</button>
+	      		<button class="btn btn-danger" ng-click="delete($index)">
+	      			<i class="fa fa-trash-o"></i>
+	      		</button>
+	      	</div>
+	      <a href="/#/iterations/{{I._id}}"><h3><i class="fa fa-folder"></i>&nbsp;{{I.title}}</h3></a>
+	      <p style="text-indent:80px;">{{I.hypothesis}}</p>
+	    </li>
+	  </ul>
+	 </div>
 
-  <ul>
-    <li>
-      <a href="/#/canvas/{{$index}}"><h3><i class="fa fa-file-o"></i>&nbsp;Iteration name</h3></a>
-      <p>Hypothesis of the project which can extend up to two lines</p>
-    </li>
-  </ul>  
+  <div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  	<div class="modal-dialog">
+  		<div class="modal-content">
+  			<div class="modal-header">
+  				<a type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a>
+  				<h2 class="modal-title" id="myModalLabel">Create Iteration</h2>
+  			</div>
+  			<div class="modal-body center">
+				<input type="text" ng-model="N.title" class="form-control" placeholder="Title"/><br>
+				<textarea type="text" ng-model="N.hypothesis" class="form-control" placeholder="Hypothesis"></textarea><br>
+				{{err}}
+  				<button class="btn btn-lg btn-block btn-primary" ng-click="create()">Create</button>
+  			</div>
+  		</div>
+  	</div>
+  </div>
+
+  <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  	<div class="modal-dialog">
+  		<div class="modal-content">
+  			<div class="modal-header">
+  				<a type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a>
+  				<h2 class="modal-title" id="myModalLabel">Edit iteration</h2>
+  			</div>
+  			<div class="modal-body center">
+				<input type="text" ng-model="E.title" class="form-control" placeholder="Title"/><br>
+				<textarea type="text" ng-model="E.hypothesis" class="form-control" placeholder="Hypothesis"></textarea><br>
+				{{err}}
+  				<button class="btn btn-lg btn-block btn-primary" ng-click="edit()">Save</button>
+  			</div>
+  		</div>
+  	</div>
+  </div>
 </div>

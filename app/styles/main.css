@@ -20,5 +20,5 @@ ul>li{list-style: none;}
 
 
 /* ===== Main page ====== */
-#Main{min-height: 580px;
+#Main,#Iteration{min-height: 580px;
 }
