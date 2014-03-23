@@ -32,53 +32,64 @@ exports.createProject = function(d,callback){
 		title:d.title,
 		created_on:new Date()
 	}).save(function(err,docs){
-		e?callback(400):callback(true)
+		e?callback(null):callback(true)
 	})
 }
 
 exports.editProject = function(id,title,callback){
 	Project.update({_id:id},{title:title},function(err,status){
-		e?callback(400):callback(true)
+		e?callback(null):callback(true)
 	})
 }
 
 exports.deleteProject = function(id,callback){
 	Project.remove({_id:id},function(e){
-		e?callback(400):callback(true)
+		e?callback(null):callback(true)
 	})
 }
 
-exports.addIteration = function(id,d,callback){
+exports.get = function(id,callback){
+	Project.findOne({_id:id},function(err,docs){
+		err?callback(null):callback(docs)
+	})
+}
+
+exports.getAll = function(callback){
+	Project.find({},function(err,docs){
+		err?callback(null):callback(docs)
+	})
+}
+exports.createCanvas = function(id,d,callback){
 	Project.finOne({_id:id},function(err,docs){
-		if(err) callback(400)
+		if(err) callback(null)
 		else{docs.canvas.push(d)
 			docs.save(function(e,o){
-				e?callback(400):callback(o)
+				e?callback(null):callback(o)
 			})
 
 		}
 	})
 }
 
-exports.editIteration = function(id,index,d,callback){
+exports.editCanvas = function(id,index,d,callback){
 	Project.findOne({_id:id},function(err,docs){
-		if(err) callback(400)
+		if(err) callback(null)
 		else{
 			docs.canvas[index] = d
 			docs.save(function(e,o){
-				e?callback(400):callback(o)
+				e?callback(null):callback(o)
 			})
 		}
 	})
 }
 
-exports.deleteIteration = function(id,index,callback){
+exports.deleteCanvas = function(id,index,callback){
 	Project.findOne({_id:id},function(err,docs){
-		if(err) callback(400)
+		if(err) callback(null)
 		else{
 			docs.canvas.splice(index,1)
 			docs.save(function(e,o){
-				e?callback(400):callback(o)
+				e?callback(null):callback(o)
 			})
 		}
 	})

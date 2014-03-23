@@ -9,7 +9,11 @@ var fs = require('fs');
 var app = express();
 var MongoStore = require('connect-mongo')(express)
 
+// Models
 require('./models/config');
+
+// Controllers
+var Api = require('./controllers/api.js')
 
 
 // Middlewares
@@ -46,6 +50,18 @@ if ("development" === app.get("env")) {
 app.get('/',function(req,res){
   res.render('index.html')
 })
+
+// Rest apis
+
+app.get('/api/projects/:id',Api.project.get)
+app.get('/api/projects',Api.project.getAll)
+app.post('/api/projects',Api.project.create)
+app.put('/api/projects/:id',Api.project.edit)
+app.del('/api/projects/:id',Api.project.delete)
+
+app.post('/api/canvas/:id',Api.canvas.create)
+app.put('/api/canvas/:id/:index',Api.canvas.edit)
+app.del('/api/canvas/:id/:index',Api.canvas.delete)
 
 
 http.createServer(app).listen(app.get("port"), function() {
