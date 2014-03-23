@@ -4,7 +4,7 @@ angular.module('bmcApp')
   .controller('IterationCtrl', function ($scope,$resource,$routeParams,$http) {
 
 
-    var ID = $routeParams.id
+    var ID = $scope.ID = $routeParams.id
   	var Iteration = $resource('/api/iterations/:id/:index',{id:'@id',index:'@index'},{update:{method:'PUT',params:{id:'@id',index:'@index'}}})
 
   	var init = function(){

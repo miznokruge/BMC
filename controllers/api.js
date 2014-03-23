@@ -40,6 +40,11 @@ var canvas = {
 			res.send(done)
 		})
 	},
+	update:function(req,res){
+		Project.updateCanvas(req.params.id, req.params.index, req.body, function(done){
+			res.send(done)
+		})
+	},
 	delete:function(req,res){
 		Project.deleteCanvas(req.params.id, req.params.index, function(done){
 			res.send(done)

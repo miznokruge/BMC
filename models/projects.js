@@ -65,7 +65,8 @@ exports.getAll = function(callback){
 exports.createCanvas = function(id,d,callback){
 	Project.findOne({_id:id},function(err,docs){
 		if(err) callback(null)
-		else{docs.canvas.push(d)
+		else{d.created_on = new Date()
+			docs.canvas.push(d)
 			docs.save(function(e,o){
 				e?callback(null):callback(o)
 			})
@@ -87,6 +88,20 @@ exports.editCanvas = function(id,index,d,callback){
 	})
 }
 
+exports.updateCanvas = function(id,index,d,callback){
+	Project.findOne({_id:id},function(err,docs){
+		if(err) callback(null)
+		else{
+			docs.canvas[index].params = d.params
+			docs.canvas[index].feedback = d.feedback
+			docs.canvas[index].start_date = d.start_date
+			docs.canvas[index].end_date = d.end_date
+			docs.save(function(e,o){
+				e?callback(null):callback(o)
+			})
+		}
+	})
+}
 exports.deleteCanvas = function(id,index,callback){
 	Project.findOne({_id:id},function(err,docs){
 		if(err) callback(null)

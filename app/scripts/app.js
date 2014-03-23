@@ -11,7 +11,7 @@ angular.module('bmcApp', ['ngRoute','ngResource'])
 	      	templateUrl:'views/iterations.html',
 	      	controller:'IterationCtrl'
 	      })
-	      .when('/canvas/:index',{
+	      .when('/canvas/:id/:index',{
 	      	templateUrl:'views/canvas.html',
 	      	controller:'CanvasCtrl'
 	      })

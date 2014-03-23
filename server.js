@@ -61,6 +61,7 @@ app.del('/api/projects/:id',Api.project.delete)
 
 app.post('/api/iterations/:id',Api.canvas.create)
 app.put('/api/iterations/:id/:index',Api.canvas.edit)
+app.put('/api/canvas/:id/:index',Api.canvas.update)
 app.del('/api/iterations/:id/:index',Api.canvas.delete)
 
 

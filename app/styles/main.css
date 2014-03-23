@@ -20,5 +20,8 @@ ul>li{list-style: none;}
 
 
 /* ===== Main page ====== */
-#Main,#Iteration{min-height: 580px;
+#Main,#Iteration,#Canvas{min-height: 580px;
+}
+
+#Canvas .element{padding: 1%;
 }

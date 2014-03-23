@@ -1,0 +1,51 @@
+<div class="container" id="Canvas">
+	<div class="col-md-8 col-md-offset-2 center">
+		<h2>{{Canvas.title}}</h2>
+		<p>{{Canvas.hypothesis}}</p>
+	</div>
+	<div class="col-md-2"><h4><u>Iteration - {{Index}}</u></h4></div>
+	<div class="col-md-2 col-md-offset-10">
+		<button class="btn btn-block btn-primary" ng-click="Update()"><i class="fa fa-check-square"></i>&nbsp;Update</button>
+	</div>
+	<div class="col-md-4 element">
+		<h4><i class="fa fa-group"></i>&nbsp;Customer Segments</h4>
+		<textarea ng-model="Canvas.params.segments" class="form-control" rows=5></textarea>
+	</div>
+	<div class="col-md-4 element">
+		<h4><i class="fa fa-money"></i>&nbsp;Value Proposition</h4>
+		<textarea ng-model="Canvas.params.value" class="form-control" rows=5></textarea>
+	</div>
+	<div class="col-md-4 element">
+		<h4><i class="fa fa-rocket"></i>&nbsp;Channels</h4>
+		<textarea ng-model="Canvas.params.channels" class="form-control" rows=5></textarea>
+	</div>
+	<div class="col-md-4 element">
+		<h4><i class="fa fa-cogs"></i>&nbsp;Resources</h4>
+		<textarea ng-model="Canvas.params.resources" class="form-control" rows=5></textarea>
+	</div>
+	<div class="col-md-4 element">
+		<h4><i class="fa fa-rupee"></i>&nbsp;Cost Structure</h4>
+		<textarea ng-model="Canvas.params.cost" class="form-control" rows=5></textarea>
+	</div>
+	<div class="col-md-4 element">
+		<h4><i class="fa fa-dollar"></i>&nbsp;Revenue models</h4>
+		<textarea ng-model="Canvas.params.revenue" class="form-control" rows=5></textarea>
+	</div>
+	<div class="col-md-4 element">
+		<h4><i class="fa fa-wrench"></i>&nbsp;Activities</h4>
+		<textarea ng-model="Canvas.params.activities" class="form-control" rows=5></textarea>
+	</div>
+	<div class="col-md-4 element">
+		<h4><i class="fa fa-thumbs-up"></i>&nbsp;Partners</h4>
+		<textarea ng-model="Canvas.params.partners" class="form-control" rows=5></textarea>
+	</div>
+	<div class="col-md-4 element">
+		<h4><i class="fa fa-heart"></i>&nbsp;Relationships</h4>
+		<textarea ng-model="Canvas.params.relationships" class="form-control" rows=5></textarea>
+	</div>
+
+	<div class="col-md-10 col-md-offset-1 element">
+		<h4><i class="fa fa-pencil"></i>&nbsp;Feedback</h4>
+		<textarea ng-model="Canvas.feedback" class="form-control" rows=5></textarea>
+	</div>
+</div>
